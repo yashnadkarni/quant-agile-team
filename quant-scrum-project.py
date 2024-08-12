@@ -1,17 +1,20 @@
 #
-# Code to calculate BMI and give user a rating
+#************************************************************************************
+# Quant Systems Agile Group Project
+# Team Tech Ninjas - BMI Calculator
+#************************************************************************************
 #
 print("BMI Calculator")
 
 def get_info(info):
     #******************************************
-    # GetInfo from user
-    # Function will loop till user correctly gives input.
+    # Function will loop till user correctly gives input
+    # Returns age, gender, weight and height
     #******************************************
     while True:
         try:
             if info == "age":
-                age = int(input("Enter age: "))
+                age = round(float(input("Enter age: ")))
                 if 0 <= age <= 99:
                     return age
                 else:
@@ -39,7 +42,7 @@ def get_info(info):
         except:
             print("\nError! Please enter a correct number\n")
     
-# Get age, gender, weight & height
+## Get user age, gender, weight & height
 age = get_info("age")
 gender = get_info("gender")
 weight = get_info("weight")
@@ -48,14 +51,13 @@ height = get_info("height")
 if height == 0:
     print("\nYour rating is -3\n")
 else:
-    # Calculate BMI and rating
-    bmi = (weight / (height * height)) * 10000
-    print("Weight: ",weight, " Height: ",height)
+    bmi = (weight / (height * height)) * 10000              ## BMI Formula in kgs and cm
     if bmi <= 42:
-        if bmi <= 21:
-            scaled_bmi = ((6 * bmi) / 21) - 3
-        else:
-            scaled_bmi = ((6 * bmi) / 21) - 9
-        print("\n\nYour rating is: ", round(scaled_bmi),"  Scaled BMI: ",scaled_bmi,"\n\n")
+        scaled_bmi = 3 - (6 / 21) * abs(bmi - 21)           ## Formula to scale and adjust according to -3 to 3 scale
+        print("\nYour rating is: ",round(scaled_bmi), "\n") ## Will only output [-3,-2, -1,0 1, 2, 3] rating
     else:
-        print("\nError! BMI out of range\n")
+        print("\nYour rating is -3\n")
+
+#************************************************************************************
+# END
+#************************************************************************************
