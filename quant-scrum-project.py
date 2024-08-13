@@ -4,7 +4,7 @@
 # Team Tech Ninjas - BMI Calculator
 #************************************************************************************
 #
-print("BMI Calculator")
+print("\nBMI Calculator\n")
 
 def get_info(info):
     #******************************************
@@ -40,7 +40,7 @@ def get_info(info):
             else:
                 return int(input(f"Enter {info}: "))
         except:
-            print("\nError! Please enter a correct number\n")
+            print("\nError! Please enter a correct value\n")
     
 ## Get user age, gender, weight & height
 age = get_info("age")
@@ -49,14 +49,14 @@ weight = get_info("weight")
 height = get_info("height")
 
 if height == 0:
-    print("\nYour rating is -3\n")
+    print("\nYour BMI rating is -3\n")
 else:
-    bmi = (weight / (height * height)) * 10000              ## BMI Formula in kgs and cm
+    bmi = (weight / (height * height)) * 10000                  ## BMI Formula in kgs and cm
     if bmi <= 42:
-        scaled_bmi = 3 - (6 / 21) * abs(bmi - 21)           ## Formula to scale and adjust according to -3 to 3 scale
-        print("\nYour rating is: ",round(scaled_bmi), "\n") ## Will only output [-3,-2, -1,0 1, 2, 3] rating
+        scaled_bmi = 3 - (6 / 21) * abs(bmi - 21)               ## Formula to scale and adjust according to -3 to 3 scale
+        print("\nYour BMI rating is: ",round(scaled_bmi), "\n") ## Will only output [-3, -2, -1, 0, 1, 2, 3] rating
     else:
-        print("\nYour rating is -3\n")
+        print("\nYour BMI rating is -3\n")
 
 #************************************************************************************
 # END
