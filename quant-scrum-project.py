@@ -52,6 +52,7 @@ if height == 0:
     print("\nYour BMI rating is -3\n")
 else:
     bmi = (weight / (height * height)) * 10000                  ## BMI Formula in kgs and cm
+    print("Your BMI is: ", bmi)
     if bmi <= 42:
         scaled_bmi = 3 - (6 / 21) * abs(bmi - 21)               ## Formula to scale and adjust according to -3 to 3 scale
         print("\nYour BMI rating is: ",round(scaled_bmi), "\n") ## Will only output [-3, -2, -1, 0, 1, 2, 3] rating
